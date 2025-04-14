@@ -1,26 +1,25 @@
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AuthControlador {
-    private Map<String, LocalDateTime> entryTimes = new HashMap<>();
-    private Map<String, LocalDateTime> exitTimes = new HashMap<>();
+    private Map<String, String> usuarios;
 
-    public void registerEntry(String userId) {
-        entryTimes.put(userId, LocalDateTime.now());
-        System.out.println("Entrada registrada para usuario: " + userId);
+    public AuthControlador() {
+        usuarios = new HashMap<>();
+        usuarios.put("gerente", "passwordGerente");
+        usuarios.put("empleado", "passwordEmpleado");
     }
 
-    public void registerExit(String userId) {
-        exitTimes.put(userId, LocalDateTime.now());
-        System.out.println("Salida registrada para usuario: " + userId);
+    public boolean autenticarUsuario(String tipoUsuario, String password) {
+        return usuarios.containsKey(tipoUsuario) && usuarios.get(tipoUsuario).equals(password);
     }
 
-    public LocalDateTime getEntryTime(String userId) {
-        return entryTimes.get(userId);
-    }
-
-    public LocalDateTime getExitTime(String userId) {
-        return exitTimes.get(userId);
+    public void mostrarOpciones(String tipoUsuario) {
+        if (tipoUsuario.equals("gerente")) {
+            System.out.println("Opciones disponibles: Registro de Almacén, Registro de Ventas, Registro de Empleados.");
+        } else if (tipoUsuario.equals("empleado")) {
+            System.out.println("Opciones disponibles: Seleccionar Bebida, Generar Pedido.");
+        }
     }
 }
+
