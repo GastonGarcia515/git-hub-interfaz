@@ -1,26 +1,23 @@
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpleadoControlador {
-    private Map<String, LocalDateTime> entryTimes = new HashMap<>();
-    private Map<String, LocalDateTime> exitTimes = new HashMap<>();
+    private List<Empleado> empleados;
 
-    public void registerEntry(String employeeId) {
-        entryTimes.put(employeeId, LocalDateTime.now());
-        System.out.println("Entrada registrada para empleado: " + employeeId);
+    public EmpleadoControlador() {
+        empleados = new ArrayList<>();
     }
 
-    public void registerExit(String employeeId) {
-        exitTimes.put(employeeId, LocalDateTime.now());
-        System.out.println("Salida registrada para empleado: " + employeeId);
+    public void registrarEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+        System.out.println("Empleado registrado: " + empleado.getNombre());
     }
 
-    public LocalDateTime getEntryTime(String employeeId) {
-        return entryTimes.get(employeeId);
-    }
-
-    public LocalDateTime getExitTime(String employeeId) {
-        return exitTimes.get(employeeId);
+    public void mostrarListaEmpleados() {
+        System.out.println("Lista de empleados:");
+        for (Empleado empleado : empleados) {
+            System.out.println(empleado.getNombre() + " - " + empleado.getFuncion() + " - Sueldo: $" + empleado.getSueldo());
+        }
     }
 }
+
