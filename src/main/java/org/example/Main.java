@@ -4,7 +4,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Usuario usuario = new Usuario("Carlos Barman", "Bartender");
-
+//xd
         List<Producto> productos = Arrays.asList(
                 new Producto("Fernet shot", "imagenen/img/imagen1.jpg", 5),
                 new Producto("Jagermeister", "imagenen/img/imagen2.jpg", 10),
