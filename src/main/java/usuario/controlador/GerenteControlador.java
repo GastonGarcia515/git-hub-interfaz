@@ -1,23 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
+public class GerenteControlador {
+    private Gerente gerente;
 
-public class EmpleadoControlador {
-    private List<Empleado> empleados;
-
-    public EmpleadoControlador() {
-        empleados = new ArrayList<>();
+    public GerenteControlador(Gerente gerente) {
+        this.gerente = gerente;
     }
 
-    public void registrarEmpleado(Empleado empleado) {
-        empleados.add(empleado);
-        System.out.println("Empleado registrado: " + empleado.getNombre());
+    public void gestionarAlmacen() {
+        System.out.println("Gestión de almacén: Ver bebidas disponibles, añadir más stock.");
     }
 
-    public void mostrarListaEmpleados() {
-        System.out.println("Lista de empleados:");
-        for (Empleado empleado : empleados) {
-            System.out.println(empleado.getNombre() + " - " + empleado.getFuncion() + " - Sueldo: $" + empleado.getSueldo());
-        }
+    public void gestionarVentas() {
+        System.out.println("Registro de ventas: Ver bebidas vendidas, precios y generar facturas.");
+    }
+
+    public void gestionarEmpleados() {
+        System.out.println("Gestión de empleados: Lista de empleados, sueldo, horario y descuentos.");
     }
 }
+
 
